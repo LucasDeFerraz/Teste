@@ -1,7 +1,7 @@
 # Parte 4 - Laravel (versão melhorada do supermercado)
 
 Versão "melhorada" da página do supermercado (mesmo catálogo de produtos e
-categorias da `parte2-html-css`), reconstruída como uma aplicação Laravel,
+categorias da `Parte 2 Supermercado`), reconstruída como uma aplicação Laravel,
 usando **Bootstrap** para a estrutura geral e **Tailwind CSS** para os
 ajustes finos de estilo.
 
@@ -48,7 +48,7 @@ parte4-laravel/
 │   │   ├── bootstrap.css                          ← Import do Bootstrap (via npm)
 │   │   └── app.css                                 ← Tailwind (theme+utilities) + CSS customizado
 │   └── js/app.js                                   ← Hover/clique decorativos (sem backend)
-├── public/images/                                 ← Imagens dos produtos (mesmas da parte2-html-css)
+├── public/images/                                 ← Imagens dos produtos (mesmas da Parte 2 Supermercado)
 └── vite.config.js                                 ← Registra bootstrap.css, app.css e app.js no build
 ```
 
@@ -95,13 +95,35 @@ Depois é só abrir **http://127.0.0.1:8000** no navegador.
 
 ## Verificação feita
 
-- `npm run build` rodou sem erros e gerou `bootstrap.css` (~230KB),
-  `app.css` (Tailwind + customizações) e `app.js` em `public/build/`.
-- `php artisan serve` subiu o servidor e a rota `/` respondeu **200 OK**,
-  sem erros no console do navegador.
+Este projeto **não usa banco de dados** (a página de produtos é dado fixo no
+Controller, sem autenticação nem carrinho real) — por isso sessão/cache/fila
+usam driver de arquivo (`SESSION_DRIVER=file`, `CACHE_STORE=file`,
+`QUEUE_CONNECTION=sync` no `.env.example`). Isso evita ter que rodar
+migrations ou criar `database.sqlite` só para o projeto subir.
+
+A validação foi feita simulando exatamente o que quem for rodar este projeto
+vai fazer: um **clone novo do repositório em uma pasta vazia**, seguido de
+`composer install`, `npm install`, `cp .env.example .env`,
+`php artisan key:generate`, `npm run build` e `php artisan serve` — sem
+nenhum arquivo/estado que só existisse na minha máquina.
+
+- `composer install` e `npm install` rodaram sem erro a partir do zero
+  (sem `vendor/` ou `node_modules/` pré-existentes).
+- `npm run build` gerou `bootstrap.css` (~230KB), `app.css` (Tailwind +
+  customizações) e `app.js` em `public/build/`.
+- `php artisan serve` subiu o servidor e a rota `/` respondeu **200 OK** em
+  requisições repetidas, sem erros no console do navegador.
 - Os 20 produtos, nas 5 categorias (Frutas e Verduras, Laticínios,
-  Mercearia, Bebidas, Limpeza), aparecem com nome, imagem, preço no formato
-  `R$ 00,00` e botão "Adicionar ao carrinho".
+  Mercearia, Bebidas, Limpeza), aparecem com nome, imagem (as 20 confirmadas
+  carregando com sucesso), preço no formato `R$ 00,00` e botão "Adicionar ao
+  carrinho".
 - Testado via clique real no botão: o texto muda para "Adicionado ✓"
   temporariamente (feedback visual, sem chamada ao backend) e o hover no
   card aplica/remove a classe de destaque corretamente.
+
+> Nessa validação eu encontrei e corrigi um bug real: um `.gitignore` mal
+> escrito na raiz do repositório estava excluindo
+> `storage/framework/sessions/.gitignore`, o que fazia a aplicação quebrar
+> com erro 500 (`Failed to open stream`) num clone novo, mesmo funcionando
+> normalmente no ambiente onde foi desenvolvida. Só foi pego rodando o teste
+> a partir de um clone limpo de verdade, não a partir dos arquivos locais.

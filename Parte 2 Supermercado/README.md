@@ -7,7 +7,7 @@ apenas com **HTML5 semântico e CSS puro** — sem JavaScript, sem frameworks
 ## Arquivos
 
 ```
-parte2-html-css/
+Parte 2 Supermercado/
 ├── index.html
 ├── style.css
 ├── images/        (20 imagens placeholder, uma por produto)
