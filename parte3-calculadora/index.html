@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Calculadora</h1>
+</header>
+
+<main>
+
+  <section class="painel-customizacao" aria-label="Painel de customização">
+    <h2>Personalizar</h2>
+
+    <div class="campo-customizacao">
+      <label for="cor-botao">Cor dos botões</label>
+      <input type="color" id="cor-botao" value="#4f46e5">
+    </div>
+
+    <div class="campo-customizacao">
+      <label for="fonte-select">Fonte</label>
+      <select id="fonte-select">
+        <option value="'Segoe UI', Roboto, Arial, sans-serif" selected>Padrão (sans-serif)</option>
+        <option value="Georgia, 'Times New Roman', serif">Serifada (Georgia)</option>
+        <option value="'Courier New', Courier, monospace">Monoespaçada (Courier)</option>
+        <option value="'Comic Sans MS', 'Comic Sans', cursive">Descontraída (Comic Sans)</option>
+        <option value="'Trebuchet MS', Verdana, sans-serif">Arredondada (Trebuchet)</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="calculadora" aria-label="Calculadora">
+    <div class="display" id="display">0</div>
+
+    <div class="teclado">
+      <button type="button" class="tecla num" data-num="7">7</button>
+      <button type="button" class="tecla num" data-num="8">8</button>
+      <button type="button" class="tecla num" data-num="9">9</button>
+      <button type="button" class="tecla op" data-op="/">÷</button>
+
+      <button type="button" class="tecla num" data-num="4">4</button>
+      <button type="button" class="tecla num" data-num="5">5</button>
+      <button type="button" class="tecla num" data-num="6">6</button>
+      <button type="button" class="tecla op" data-op="*">×</button>
+
+      <button type="button" class="tecla num" data-num="1">1</button>
+      <button type="button" class="tecla num" data-num="2">2</button>
+      <button type="button" class="tecla num" data-num="3">3</button>
+      <button type="button" class="tecla op" data-op="-">-</button>
+
+      <button type="button" class="tecla limpar" id="btn-limpar">C</button>
+      <button type="button" class="tecla num" data-num="0">0</button>
+      <button type="button" class="tecla decimal" id="btn-decimal">.</button>
+      <button type="button" class="tecla op" data-op="+">+</button>
+
+      <button type="button" class="tecla igual" id="btn-igual">=</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Calculadora criada para fins de teste técnico.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

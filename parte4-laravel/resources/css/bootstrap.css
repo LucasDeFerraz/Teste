@@ -1,0 +1,6 @@
+/*
+ * Bootstrap cuida da estrutura geral: grid (container/row/col), navbar,
+ * cards e botões. Importado separado do Tailwind (ver resources/css/app.css)
+ * para manter os dois com responsabilidades claras e não sobrepostas.
+ */
+@import 'bootstrap/dist/css/bootstrap.min.css';

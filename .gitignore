@@ -1,0 +1,23 @@
+# Laravel (parte4-laravel)
+parte4-laravel/vendor/
+parte4-laravel/node_modules/
+parte4-laravel/.env
+parte4-laravel/database/database.sqlite
+parte4-laravel/public/build/
+parte4-laravel/public/hot
+parte4-laravel/storage/*.key
+parte4-laravel/storage/framework/cache/data/
+parte4-laravel/storage/framework/sessions/
+parte4-laravel/storage/framework/views/*.php
+parte4-laravel/storage/logs/*.log
+parte4-laravel/bootstrap/cache/*.php
+parte4-laravel/.phpunit.cache/
+parte4-laravel/.phpunit.result.cache
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Compactados que já geramos (não precisam ir pro repositório)
+*.rar
+*.zip

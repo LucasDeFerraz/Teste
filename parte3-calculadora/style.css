@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cor-botao: #4f46e5;
+  --fonte-calculadora: 'Segoe UI', Roboto, Arial, sans-serif;
+
+  --cor-fundo: #1e2130;
+  --cor-num-bg: #2f3345;
+  --cor-num-bg-hover: #3a3f56;
+  --cor-texto: #f4f4f6;
+  --cor-limpar: #e11d48;
+  --cor-limpar-hover: #be123c;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #14162280, #1e2130), #181a26;
+  background-color: #181a26;
+  color: var(--cor-texto);
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem 2.5rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+main {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ==========================================================================
+   Painel de customização
+   ========================================================================== */
+.painel-customizacao {
+  background-color: #262a3b;
+  border-radius: 14px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 260px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.painel-customizacao h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  color: #c9cbe0;
+}
+
+.campo-customizacao {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.campo-customizacao:last-child {
+  margin-bottom: 0;
+}
+
+.campo-customizacao label {
+  font-size: 0.9rem;
+  color: #a9abc4;
+}
+
+.campo-customizacao input[type="color"] {
+  width: 100%;
+  height: 2.6rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+}
+
+.campo-customizacao select {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #3a3f56;
+  background-color: #1e2130;
+  color: var(--cor-texto);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Calculadora
+   ========================================================================== */
+.calculadora {
+  background-color: #262a3b;
+  border-radius: 18px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  font-family: var(--fonte-calculadora);
+}
+
+.display {
+  background-color: #14162a;
+  color: #ffffff;
+  font-size: 2.4rem;
+  text-align: right;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: var(--fonte-calculadora);
+  letter-spacing: 0.5px;
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+}
+
+.tecla {
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 0;
+  font-size: 1.3rem;
+  font-family: var(--fonte-calculadora);
+  cursor: pointer;
+  color: var(--cor-texto);
+  background-color: var(--cor-num-bg);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.tecla:hover {
+  background-color: var(--cor-num-bg-hover);
+}
+
+.tecla:active {
+  transform: scale(0.96);
+}
+
+.tecla.op {
+  background-color: var(--cor-botao);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tecla.op:hover {
+  filter: brightness(1.15);
+}
+
+.tecla.igual {
+  grid-column: span 4;
+  background-color: var(--cor-botao);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.tecla.igual:hover {
+  filter: brightness(1.15);
+}
+
+.tecla.limpar {
+  background-color: var(--cor-limpar);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tecla.limpar:hover {
+  background-color: var(--cor-limpar-hover);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  margin-top: 2rem;
+  color: #6c6f89;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Responsividade
+   ========================================================================== */
+@media (max-width: 480px) {
+  .display {
+    font-size: 1.9rem;
+  }
+
+  .tecla {
+    font-size: 1.1rem;
+    padding: 0.85rem 0;
+  }
+
+  main {
+    gap: 1.2rem;
+  }
+}
