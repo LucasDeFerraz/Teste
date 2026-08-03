@@ -1,18 +1,8 @@
-# Laravel (parte4-laravel)
-parte4-laravel/vendor/
-parte4-laravel/node_modules/
-parte4-laravel/.env
-parte4-laravel/database/database.sqlite
-parte4-laravel/public/build/
-parte4-laravel/public/hot
-parte4-laravel/storage/*.key
-parte4-laravel/storage/framework/cache/data/
-parte4-laravel/storage/framework/sessions/
-parte4-laravel/storage/framework/views/*.php
-parte4-laravel/storage/logs/*.log
-parte4-laravel/bootstrap/cache/*.php
-parte4-laravel/.phpunit.cache/
-parte4-laravel/.phpunit.result.cache
+# parte4-laravel já tem seu próprio .gitignore (gerado pelo Laravel) cuidando
+# de vendor/, node_modules/, .env, public/build, storage/*, etc. — incluindo
+# os placeholders ".gitignore" que mantêm as pastas vazias no repositório.
+# Duplicar essas regras aqui só arriscava sobrescrever esse comportamento
+# (foi o que aconteceu com storage/framework/sessions/, que sumiu do repo).
 
 # Arquivos de sistema
 .DS_Store
